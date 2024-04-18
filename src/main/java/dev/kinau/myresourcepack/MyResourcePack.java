@@ -102,7 +102,8 @@ public class MyResourcePack implements ModInitializer {
 
                 List<AbstractWidget> buttons = Screens.getButtons(screen);
                 ConfigButton configButton;
-                buttons.add(configButton = new ConfigButton(scaledWidth / 2 + 184, scaledHeight - 20 - 5, 20, 20, !setting.overrideTextures()) {
+                buttons.removeIf(abstractWidget -> abstractWidget instanceof ConfigButton);
+                buttons.add(configButton = new ConfigButton(scaledWidth - 20 - 5, scaledHeight - 20 - 6, 20, 20, !setting.overrideTextures()) {
                     @Override
                     public void onPress() {
                         List<Pack> serverPacks = minecraft.getResourcePackRepository().getSelectedPacks().stream()
@@ -129,10 +130,22 @@ public class MyResourcePack implements ModInitializer {
                         minecraft.setScreen(new ResourceSelectionScreen(minecraft.screen, merged));
                     }
                 });
-                Switch switchButton = (Switch) createToggle(minecraft, scaledWidth, setting, scaledHeight - 20 - 5, overrideTextures -> {
+                buttons.removeIf(abstractWidget -> abstractWidget instanceof Switch);
+                Switch switchButton = (Switch) createToggle(minecraft, scaledWidth, setting, scaledHeight - 20 - 6, overrideTextures -> {
                     configButton.active = !overrideTextures;
                 }, true);
                 buttons.add(switchButton);
+
+                buttons.forEach(abstractWidget -> {
+                    if (abstractWidget instanceof Button button) {
+                        if (button.getMessage().getContents() instanceof TranslatableContents translatableContents && translatableContents.getKey().equals("gui.done")) {
+                            button.setX(scaledWidth / 2 - 50);
+                            button.setWidth(Math.max(65, switchButton.getX() - button.getX() - 5));
+                        } else if (button.getMessage().getContents() instanceof TranslatableContents translatableContents && translatableContents.getKey().equals("pack.openFolder")) {
+                            button.setX(scaledWidth / 2 - button.getWidth() - 50 - 5);
+                        }
+                    }
+                });
             });
             ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
                 if (!(screen instanceof ClientCommonPacketListenerImpl.PackConfirmScreen confirmScreen)) return;
@@ -175,7 +188,7 @@ public class MyResourcePack implements ModInitializer {
 
                                     for (ClientCommonPacketListenerImpl.PackConfirmScreen.PendingRequest pendingRequest : packScreen.getRequests()) {
                                         packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.ACCEPTED));
-                                        packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.SUCCESSFULLY_LOADED));
+                                        packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.FAILED_DOWNLOAD));
                                     }
 
                                     client.setScreen(((PackConfirmScreenExpander)confirmScreen).getParentScreen());
@@ -208,7 +221,7 @@ public class MyResourcePack implements ModInitializer {
                 ? 60 + 4 + minecraft.font.width(component)
                 : 20 + 4 + minecraft.font.width(component);
         return reloadResources
-                ? new Switch(scaledWidth / 2 + 4, y, width, height, component, !setting.overrideTextures()) {
+                ? new Switch(scaledWidth - width - 24 - 5, y, width, height, component, !setting.overrideTextures()) {
             @Override
             public void onPress() {
                 super.onPress();

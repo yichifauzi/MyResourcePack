@@ -156,11 +156,6 @@ public class ResourceSelectionScreen extends Screen {
     }
 
     @Override
-    public void renderBackground(GuiGraphics guiGraphics, int i, int j, float f) {
-        this.renderDirtBackground(guiGraphics);
-    }
-
-    @Override
     public boolean keyPressed(int i, int j, int k) {
         if (tabNavigationBar.keyPressed(i)) {
             return true;

@@ -48,18 +48,8 @@ public class ResourceConfigurationTreeView extends ContainerObjectSelectionList<
     }
 
     @Override
-    protected void renderList(GuiGraphics guiGraphics, int i, int j, float f) {
-        int k = this.getRowLeft();
-        int l = this.getRowWidth();
-        int m = this.itemHeight - 4;
-        int n = this.getItemCount();
-        for (int o = 0; o < n; ++o) {
-            int p = this.getRowTop(o);
-            int q = this.getRowBottom(o);
-            if (q >= this.getY() && p <= this.getBottom()) {
-                this.renderItem(guiGraphics, i, j, f, o, k, p, l, m);
-            }
-        }
+    protected void renderListItems(GuiGraphics guiGraphics, int i, int j, float f) {
+        super.renderListItems(guiGraphics, i, j, f);
     }
 
     @Override
