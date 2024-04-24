@@ -188,7 +188,8 @@ public class MyResourcePack implements ModInitializer {
 
                                     for (ClientCommonPacketListenerImpl.PackConfirmScreen.PendingRequest pendingRequest : packScreen.getRequests()) {
                                         packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.ACCEPTED));
-                                        packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.FAILED_DOWNLOAD));
+                                        packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.DOWNLOADED));
+                                        packetListener.send(new ServerboundResourcePackPacket(pendingRequest.id(), ServerboundResourcePackPacket.Action.SUCCESSFULLY_LOADED));
                                     }
 
                                     client.setScreen(((PackConfirmScreenExpander)confirmScreen).getParentScreen());
