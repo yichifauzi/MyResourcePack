@@ -22,7 +22,7 @@ public abstract class CompositePackResourcesMixin implements PackResourceExpande
 
 	@Override
 	public ResourceDirectory myResourcePack$createResourceTree(PackType packType, String namespace) {
-		ResourceDirectory resourceDirectory = new ResourceDirectory(new ResourceLocation(namespace, ""));
+		ResourceDirectory resourceDirectory = new ResourceDirectory(ResourceLocation.fromNamespaceAndPath(namespace, ""));
 		for (PackResources packResources : packResourcesStack) {
 			if (packResources instanceof PackResourceExpander) {
 				ResourceDirectory childDir = ((PackResourceExpander) packResources).myResourcePack$createResourceTree(packType, namespace);

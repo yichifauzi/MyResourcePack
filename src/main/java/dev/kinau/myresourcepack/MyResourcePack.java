@@ -112,7 +112,7 @@ public class MyResourcePack implements ModInitializer {
                         if (serverPacks.isEmpty()) return;
                         List<ResourceDirectory> packDirectories = new ArrayList<>();
                         for (Pack pack : serverPacks) {
-                            ResourceDirectory root = new ResourceDirectory(new ResourceLocation("", ""));
+                            ResourceDirectory root = new ResourceDirectory(ResourceLocation.fromNamespaceAndPath("", ""));
                             try (PackResources packResources = pack.open()) {
                                 packResources.getNamespaces(PackType.CLIENT_RESOURCES).forEach(namespace -> {
                                     if (packResources instanceof CompositePackResources || packResources instanceof FilePackResources) {

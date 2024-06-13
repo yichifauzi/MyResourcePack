@@ -16,10 +16,10 @@ import net.minecraft.util.Mth;
 @Getter
 @Accessors(fluent = true)
 public class Switch extends AbstractButton {
-    private static final ResourceLocation SWITCH_DISABLED_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/disabled_highlighted");
-    private static final ResourceLocation SWITCH_DISABLED_SPRITE = new ResourceLocation( "myresourcepack", "widget/disabled");
-    private static final ResourceLocation SWITCH_ENABLED_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/enabled_highlighted");
-    private static final ResourceLocation SWITCH_ENABLED_SPRITE = new ResourceLocation("myresourcepack", "widget/enabled");
+    private static final ResourceLocation SWITCH_DISABLED_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/disabled_highlighted");
+    private static final ResourceLocation SWITCH_DISABLED_SPRITE = ResourceLocation.fromNamespaceAndPath( "myresourcepack", "widget/disabled");
+    private static final ResourceLocation SWITCH_ENABLED_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/enabled_highlighted");
+    private static final ResourceLocation SWITCH_ENABLED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/enabled");
     private static final int TEXT_COLOR = 0xE0E0E0;
 
     private boolean enabled;

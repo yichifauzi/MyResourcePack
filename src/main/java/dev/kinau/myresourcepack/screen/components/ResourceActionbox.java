@@ -17,14 +17,14 @@ import net.minecraft.util.Mth;
 import java.util.Optional;
 
 public class ResourceActionbox extends AbstractButton {
-    private static final ResourceLocation CHECKBOX_PASS_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_pass_highlighted");
-    private static final ResourceLocation CHECKBOX_PASS_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_pass");
-    private static final ResourceLocation CHECKBOX_BLOCK_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_block_highlighted");
-    private static final ResourceLocation CHECKBOX_BLOCK_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_block");
-    private static final ResourceLocation CHECKBOX_UNKNOWN_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_unknown_highlighted");
-    private static final ResourceLocation CHECKBOX_UNKNOWN_SPRITE = new ResourceLocation( "myresourcepack", "widget/checkbox_unknown");
-    private static final ResourceLocation CHECKBOX_MERGE_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_merge_highlighted");
-    private static final ResourceLocation CHECKBOX_MERGE_SPRITE = new ResourceLocation("myresourcepack", "widget/checkbox_merge");
+    private static final ResourceLocation CHECKBOX_PASS_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_pass_highlighted");
+    private static final ResourceLocation CHECKBOX_PASS_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_pass");
+    private static final ResourceLocation CHECKBOX_BLOCK_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_block_highlighted");
+    private static final ResourceLocation CHECKBOX_BLOCK_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_block");
+    private static final ResourceLocation CHECKBOX_UNKNOWN_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_unknown_highlighted");
+    private static final ResourceLocation CHECKBOX_UNKNOWN_SPRITE = ResourceLocation.fromNamespaceAndPath( "myresourcepack", "widget/checkbox_unknown");
+    private static final ResourceLocation CHECKBOX_MERGE_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_merge_highlighted");
+    private static final ResourceLocation CHECKBOX_MERGE_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/checkbox_merge");
     private static final int TEXT_COLOR = 0xE0E0E0;
     private ResourceAction action;
     private final ResourceTab resourceTab;

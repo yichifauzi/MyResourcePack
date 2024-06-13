@@ -14,9 +14,9 @@ import net.minecraft.resources.ResourceLocation;
 @Setter
 @Accessors(fluent = true)
 public abstract class ConfigButton extends AbstractButton {
-    private static final ResourceLocation CONFIG_DISABLED_SPRITE = new ResourceLocation( "myresourcepack", "widget/config_disabled");
-    private static final ResourceLocation CONFIG_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/config_highlighted");
-    private static final ResourceLocation CONFIG_SPRITE = new ResourceLocation("myresourcepack", "widget/config");
+    private static final ResourceLocation CONFIG_DISABLED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/config_disabled");
+    private static final ResourceLocation CONFIG_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/config_highlighted");
+    private static final ResourceLocation CONFIG_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/config");
 
     public ConfigButton(int x, int y, int width, int height, boolean enabled) {
         super(x, y, width, height, Component.empty());

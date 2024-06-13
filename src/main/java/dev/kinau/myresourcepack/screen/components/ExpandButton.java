@@ -11,10 +11,10 @@ import net.minecraft.resources.ResourceLocation;
 @Getter
 public class ExpandButton extends AbstractButton {
 
-    private static final ResourceLocation BUTTON_FOLD_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/fold_highlighted");
-    private static final ResourceLocation BUTTON_FOLD_SPRITE = new ResourceLocation( "myresourcepack", "widget/fold");
-    private static final ResourceLocation BUTTON_EXPAND_HIGHLIGHTED_SPRITE = new ResourceLocation("myresourcepack", "widget/expand_highlighted");
-    private static final ResourceLocation BUTTON_EXPAND_SPRITE = new ResourceLocation("myresourcepack", "widget/expand");
+    private static final ResourceLocation BUTTON_FOLD_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/fold_highlighted");
+    private static final ResourceLocation BUTTON_FOLD_SPRITE = ResourceLocation.fromNamespaceAndPath( "myresourcepack", "widget/fold");
+    private static final ResourceLocation BUTTON_EXPAND_HIGHLIGHTED_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/expand_highlighted");
+    private static final ResourceLocation BUTTON_EXPAND_SPRITE = ResourceLocation.fromNamespaceAndPath("myresourcepack", "widget/expand");
 
     private boolean expanded;
 

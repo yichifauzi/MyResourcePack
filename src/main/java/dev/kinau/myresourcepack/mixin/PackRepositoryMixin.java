@@ -73,7 +73,7 @@ public class PackRepositoryMixin {
         setting.packOrder().forEach((packId, orderIndex) -> {
             reorderedList.stream().filter(pack -> getServerPackId(pack).equals(packId)).findAny().ifPresent(pack -> {
                 reorderedList.remove(pack);
-                reorderedList.add(orderIndex, pack);
+                reorderedList.add(Math.min(orderIndex, reorderedList.size()), pack);
             });
         });
         return reorderedList;

@@ -41,7 +41,7 @@ public class ResourceDirectory extends ResourceObject implements Cloneable {
         if (addedPath.startsWith("/"))
             addedPath = addedPath.substring(1);
         try {
-            ResourceLocation resourceLocation = new ResourceLocation(location().getNamespace(), addedPath);
+            ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(location().getNamespace(), addedPath);
             ResourceDirectory addedDir = new ResourceDirectory(resourceLocation);
             children.add(addedDir);
             return addedDir;

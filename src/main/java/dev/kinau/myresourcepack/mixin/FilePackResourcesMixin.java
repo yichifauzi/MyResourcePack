@@ -113,7 +113,7 @@ public abstract class FilePackResourcesMixin implements PackResourceExpander {
 	@Override
 	public ResourceDirectory myResourcePack$createResourceTree(PackType packType, String namespace) {
 		ZipFile zipFile = this.zipFileAccess.getOrCreateZipFile();
-		ResourceDirectory root = new ResourceDirectory(new ResourceLocation(namespace, ""));
+		ResourceDirectory root = new ResourceDirectory(ResourceLocation.fromNamespaceAndPath(namespace, ""));
 		if (zipFile == null) {
 			return root;
 		}
