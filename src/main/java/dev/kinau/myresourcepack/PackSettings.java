@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dev.kinau.myresourcepack.config.Config;
 import lombok.Getter;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,7 +14,7 @@ import java.nio.file.Files;
 public class PackSettings {
 
     private final Gson GSON = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
-    private final File CONFIG_FOLDER = new File("config/MyResourcePack");
+    private final File CONFIG_FOLDER = FabricLoader.getInstance().getConfigDir().resolve("MyResourcePack").toFile();
     private File configFile;
 
     @Getter
@@ -28,14 +29,13 @@ public class PackSettings {
     }
 
     private void loadConfig() throws IOException {
+        this.configData = new Config();
         if (!CONFIG_FOLDER.exists()) {
             if (!CONFIG_FOLDER.mkdirs()) throw new IOException(String.format("Could not create folder %s", CONFIG_FOLDER));
         }
         this.configFile = new File(CONFIG_FOLDER, "config.json");
         if (configFile.exists()) {
             this.configData = GSON.fromJson(new FileReader(configFile), Config.class);
-        } else {
-            this.configData = new Config();
         }
     }
 
